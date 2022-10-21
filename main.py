@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route("/", methods=['GET'])
 def hello_world():
-    return "Hello {}!".format(request.args['contract'])
+    return "Hello helloooo {}!".format(request.args['contract'])
 
 
 if __name__ == "__main__":
