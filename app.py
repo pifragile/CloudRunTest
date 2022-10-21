@@ -1,11 +1,15 @@
-import argparse
+import os
 
-parser = argparse.ArgumentParser()
-parser.add_argument('huhu')
-parser.add_argument('hoho')
+from flask import Flask
 
-args = parser.parse_args()
-huhu = args.huhu
-hoho = args.hoho
+app = Flask(__name__)
 
-print(huhu, hoho, flush=True)
+
+@app.route("/")
+def hello_world():
+    name = os.environ.get("NAME", "World")
+    return "Hello {}!".format(name)
+
+
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
